@@ -70,10 +70,10 @@ async def on_message(message):
     
     if message.content.startswith(PREFIX + 'help'):
         embed = create_help(emoji_dict)
+        c = '{0.channel}'.format(message)
         if not c in webhook_dict:
             print(f'{message.channel} channel not supported')
         else:
-            c = '{0.channel}'.format(message)
             webhook = Webhook.from_url(webhook_dict[c],adapter=RequestsWebhookAdapter())
             webhook.send(embed=embed)
             return
