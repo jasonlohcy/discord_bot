@@ -65,6 +65,7 @@ async def on_message(message):
         if not c in webhook_dict:
             print(f'{message.channel} channel not supported')
         else:
+            c = '{0.channel}'.format(message)
             webhook = Webhook.from_url(webhook_dict[c],adapter=RequestsWebhookAdapter())
             webhook.send(embed=embed)
             return
