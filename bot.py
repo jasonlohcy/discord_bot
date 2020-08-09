@@ -9,7 +9,9 @@ emoji_dict = {
     'shoot_tnt' : '<a:KaguyaPew_01s:697513110759800843> <a:KaguyaPew_02s:697513110206152744> '\
                     '<a:KaguyaPew_03s:697513110709469274> <a:KaguyaPew_04s:697513110118072422> <a:TNT_ignite:697513136357376002>',
     'grass_bounce' : '<a:grass_bounce:587505418406723584>',
-    'fast_parrot' : '<a:fast_parrot:393622342581878785>'
+    'fast_parrot' : '<a:fast_parrot:393622342581878785>',
+    'PepeLazer' : '<a:0PepeLazerRee:701750592271417385>',
+    'hype' : '<a:hype:726261952216825886>'
 }
 
 webhook_dict = {
