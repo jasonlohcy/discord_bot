@@ -11,7 +11,10 @@ emoji_dict = {
     'grass_bounce' : '<a:grass_bounce:587505418406723584>',
     'fast_parrot' : '<a:fast_parrot:393622342581878785>',
     'PepeLazer' : '<a:0PepeLazerRee:701750592271417385>',
-    'hype' : '<a:hype:726261952216825886>'
+    'hype' : '<a:hype:726261952216825886>',
+    'poggerschain' : '<a:aPES_PoggersChain:619920297750953989>',
+    'pepescary' : '<a:PepeScary:731173526102605885>',
+    'pogspin' : '<a:aPES_PogSpin:699598474143989830>',
 }
 
 webhook_dict = {
@@ -59,9 +62,12 @@ async def on_message(message):
     
     if message.content.startswith(PREFIX + 'help'):
         embed = create_help(emoji_dict)
-        webhook = Webhook.from_url(webhook_url,adapter=RequestsWebhookAdapter())
-        webhook.send(embed=embed)
-        return
+        if not c in webhook_dict:
+            print(f'{message.channel} channel not supported')
+        else:
+            webhook = Webhook.from_url(webhook_dict[c],adapter=RequestsWebhookAdapter())
+            webhook.send(embed=embed)
+            return
 
     if message.content[1:] in emoji_dict:
         await message.delete()
