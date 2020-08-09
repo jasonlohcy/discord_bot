@@ -25,19 +25,19 @@ client = discord.Client()
 def create_help(emoji_dict):
     embed = discord.Embed(title='**Emoji Help**')
     for key, value in emoji_dict.items():
-        #debug
-        print(key, value)
         #emoji , command , inline=true
         embed.add_field(name=value,value=f'`{PREFIX}{key}`')
     return embed
 
 def send_emoji(emoji, message):
     emote = emoji_dict[emoji]
-    if not message.channel in webhook_dict:
-        print(f'{message.channel}channel not supported')
+    c = '{0.channel}'.format(message)
+    if not c in webhook_dict:
+        print(f'{message.channel} channel not supported')
         return
-    webhook = Webhook.from_url(webhook_dict[message.channel],adapter=RequestsWebhookAdapter())
-    webhook.send(content=emote,username=message.author.display_name, avatar_url=message.author.avatar_url)
+    else:
+        webhook = Webhook.from_url(webhook_dict[c],adapter=RequestsWebhookAdapter())
+        webhook.send(content=emote,username=message.author.display_name, avatar_url=message.author.avatar_url)
 
 @client.event
 async def on_ready():
