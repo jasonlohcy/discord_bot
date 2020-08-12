@@ -33,6 +33,8 @@ webhook_dict = {
     '🤫-secret' : os.environ['SECRET_CHANNEL'],
     '🏛-hidden-link' : os.environ['HIDDEN_LINK'],
     'minecraft-progression' : os.environ['MINECRAFT_PROGRESSION'],
+    'minecraft-progression' : os.environ['MINECRAFT_PROGRESSION'],
+
 }
 
 client = discord.Client()
@@ -41,7 +43,10 @@ def create_help(emoji_dict):
     embed = discord.Embed(title='**Emoji Help**',description='[Github Source Code](https://github.com/jasonlohcy/discord_bot)')
     for key, value in emoji_dict.items():
         #emoji , command , inline=true
-        embed.add_field(name=value,value=f'`{PREFIX}{key}`')
+        try:
+            embed.add_field(name=value,value=f'`{PREFIX}{key}`')
+        except discord.errors.HTTPException:
+            print('field not added.')
         
     return embed
 
