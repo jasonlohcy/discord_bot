@@ -33,7 +33,7 @@ webhook_dict = {
     '🤫-secret' : os.environ['SECRET_CHANNEL'],
     '🏛-hidden-link' : os.environ['HIDDEN_LINK'],
     'minecraft-progression' : os.environ['MINECRAFT_PROGRESSION'],
-    'minecraft-progression' : os.environ['MINECRAFT_PROGRESSION'],
+    '🤖-bot-commands' : os.environ['BOT_COMMAND'],
 
 }
 
