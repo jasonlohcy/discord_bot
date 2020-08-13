@@ -43,11 +43,10 @@ def create_help(emoji_dict):
     embed = discord.Embed(title='**Emoji Help**',description='[Github Source Code](https://github.com/jasonlohcy/discord_bot)')
     for key, value in emoji_dict.items():
         #emoji , command , inline=true
-        try:
-            embed.add_field(name=value,value=f'`{PREFIX}{key}`')
-        except:
+        if len(value) > 256:
             print(f'{key} field not added.')
             continue
+        embed.add_field(name=value,value=f'`{PREFIX}{key}`')
         
     return embed
 
