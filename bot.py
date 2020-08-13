@@ -45,8 +45,9 @@ def create_help(emoji_dict):
         #emoji , command , inline=true
         try:
             embed.add_field(name=value,value=f'`{PREFIX}{key}`')
-        except discord.errors.HTTPException:
-            print('field not added.')
+        except:
+            print(f'{key} field not added.')
+            continue
         
     return embed
 
