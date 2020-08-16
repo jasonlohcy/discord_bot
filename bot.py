@@ -63,6 +63,7 @@ def send_emoji(emoji, message):
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+    await client.change_presence(activity=discord.Game("with Babi .help"))
 
 @client.event
 async def on_message(message):
@@ -100,5 +101,5 @@ async def on_message(message):
 #     game = discord.Game(str)
 #     await client.change_presence(activity=game)
 
-client.change_presence(activity=discord.Game("with Babi .help"))
+
 client.run(TOKEN)
