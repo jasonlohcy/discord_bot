@@ -89,11 +89,12 @@ async def on_message(message):
             webhook = Webhook.from_url(webhook_dict[c],adapter=RequestsWebhookAdapter())
             webhook.send(embed=embed)
             return
+
     split_arr = message.content.split()
     if (split_arr[0])[1:] in emoji_dict:
         await message.delete()
         if len(split_arr) > 1:
-            send_emoji((split_arr[0])[1:], message, split_arr[1])
+            send_emoji((split_arr[0])[1:], message, int(split_arr[1]))
         else: 
             send_emoji((split_arr[0])[1:],message) 
         return
