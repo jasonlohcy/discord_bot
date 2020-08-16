@@ -96,5 +96,9 @@ async def on_message(message):
     if message.content.lower() ==  PREFIX+'logout':
         await client.close()
 
+async def change_status(str):
+    game = discord.Game(str)
+    await client.change_presence(activity=game)
 
 client.run(TOKEN)
+change_status("with Babi .help")
