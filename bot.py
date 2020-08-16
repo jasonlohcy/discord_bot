@@ -22,6 +22,8 @@ emoji_dict = {
     'monkawash' : '<a:aPES_FranticWash:690958321733337170>',
     'pepebonk' : '<a:aPES4_PaperBonk:733230501455986769>',
     'kittyplay' : '<a:0KittyPlay:700970912656392204>',
+    'penguinbra' : '<a:0penguinbra:641285142484221952>',
+    'kekw' : '<a:kekw2:667552679345520681>',
     'sharingan' : '<a:CH_Sharingan1A:730774327007379560><a:CH_Sharingan1B:730774341339578388><a:CH_Sharingan1C:730774350789214259><a:CH_Sharingan1D:730774360704548875>\n'\
                     '<a:CH_Sharingan2A:730774405231411271><a:CH_Sharingan2B:730774474340696124><a:CH_Sharingan2C:730774502895779870><a:CH_Sharingan2D:730774539335630858>\n' \
                     '<a:CH_Sharingan3A:730774563192832070><a:CH_Sharingan3B:730774572252659813><a:CH_Sharingan3C:730774586035011594><a:CH_Sharingan3D:730774596667572334>\n' \
@@ -40,7 +42,7 @@ webhook_dict = {
 client = discord.Client()
 
 def create_help(emoji_dict):
-    embed = discord.Embed(title='**Emoji Help**',description='[Github Source Code](https://github.com/jasonlohcy/discord_bot)')
+    embed = discord.Embed(title='**Emoji Help**',description='[Github Source Code](https://github.com/jasonlohcy/discord_bot)\n example .emote 10')
     for key, value in emoji_dict.items():
         #emoji , command , inline=true
         if len(value) > 256:
