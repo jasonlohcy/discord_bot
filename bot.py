@@ -50,8 +50,9 @@ def create_help(emoji_dict):
         
     return embed
 
-def send_emoji(emoji, message):
+def send_emoji(emoji, message, repeat=1):
     emote = emoji_dict[emoji]
+    emote *= repeat
     c = '{0.channel}'.format(message)
     if not c in webhook_dict:
         print(f'{message.channel} channel not supported')
@@ -88,18 +89,16 @@ async def on_message(message):
             webhook = Webhook.from_url(webhook_dict[c],adapter=RequestsWebhookAdapter())
             webhook.send(embed=embed)
             return
-
-    if message.content[1:] in emoji_dict:
+    split_arr = message.content.split()
+    if (split_arr[0])[1:] in emoji_dict:
         await message.delete()
-        send_emoji(message.content[1:],message) 
+        if len(split_arr) > 1:
+            send_emoji((split_arr[0])[1:], message, split_arr[1])
+        else: 
+            send_emoji((split_arr[0])[1:],message) 
         return
 
     if message.content.lower() ==  PREFIX+'logout':
         await client.close()
-
-# async def change_status(str):
-#     game = discord.Game(str)
-#     await client.change_presence(activity=game)
-
 
 client.run(TOKEN)
